@@ -2,9 +2,10 @@ import { corsHeader } from "@/utils/corsHeader";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken"
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
     const token = (await cookies()).get("chatbot")?.value;
+    console.log('token' , token)
 
     if( !token){
       return NextResponse.json({error: "token not found"},{status: 401 ,headers : corsHeader})
