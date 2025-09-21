@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 export async function POST(req: NextRequest) {
   try {
     const token = (await cookies()).get("chatbot")?.value;
-    console.log("token", token);
 
     if (!token) {
       return NextResponse.json(
