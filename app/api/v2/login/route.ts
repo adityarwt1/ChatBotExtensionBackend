@@ -78,3 +78,8 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+
+export async function OPTIONS() {
+    return NextResponse.json({message: "Cors preflight"},{status: 204, headers: corsHeader})
+}
